@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ---------- GLOBAL + NAVBAR ---------- */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #f6f8fb 0%, #eef4ff 100%);
+      color: #111827;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 93%;
+      background: #ffffff;
+      padding: 14px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #111827;
+      transition: 0.2s;
+    }
+
+    .navbar ul li a:hover {
+      color: #0052cc;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    /* ---------- CONTACT PAGE FROM ORIGINAL ---------- */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 32px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px
+    }
+
+    .title {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .badge {
+      background: #0052cc;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 18px rgba(0, 82, 204, 0.12)
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px
+    }
+
+    p.lead {
+      margin: 6px 0 0;
+      color: #6b7280
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), #fff);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.06)
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 12px
+    }
+
+    .who-card {
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.04);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+      color: #0f172a;
+      box-shadow: 0 6px 20px rgba(2, 6, 23, 0.04)
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin: 10px 0 8px
+    }
+
+    .muted {
+      color: #6b7280;
+      font-size: 14px
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .row {
+      display: flex;
+      gap: 12px
+    }
+
+    .col {
+      flex: 1
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 600
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e6e9ef;
+      border-radius: 8px;
+      font-size: 14px
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical
+    }
+
+    .checkboxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid #e6e9ef;
+      background: white;
+      font-weight: 600;
+      font-size: 13px
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 6px
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 15px
+    }
+
+    .btn-primary {
+      background: #0052cc;
+      color: white
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(2, 6, 23, 0.06)
+    }
+
+    .info-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid #e6e9ef;
+      font-size: 14px
+    }
+
+    .error {
+      color: #e02424;
+      font-size: 13px
+    }
+
+    .success-toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      padding: 12px 16px;
+      background: #0b9a66;
+      color: white;
+      border-radius: 10px;
+      display: none
+    }
+
+    @media(max-width:980px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .panel {
+        order: 2
+      }
+    }
+
+    @media(max-width:520px) {
+      .row {
+        flex-direction: column
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 50px 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .footer-left img {
+      width: 130px;
+      margin-bottom: 12px
+    }
+
+    .footer-left .desc {
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 16px
+    }
+
+    .social-icons a {
+      margin-right: 14px;
+      color: #cbd5e1;
+      font-size: 18px;
+      transition: .3s
+    }
+
+    .social-icons a:hover {
+      color: #fff
+    }
+
+    .footer-col h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 700
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px
+    }
+
+    .footer-col ul li a {
+      text-decoration: none;
+      color: #cbd5e1;
+      transition: .2s
+    }
+
+    .footer-col ul li a:hover {
+      color: white
+    }
+
+    .footer-right .whatsapp-btn {
+      background: #22c55e;
+      padding: 10px 14px;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-right .community-text {
+      margin-top: 10px;
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.5
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      color: #94a3b8;
+      font-size: 14px
+    }
+
+    @media(max-width:900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:600px) {
+      .footer-container {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* WHY CHOOSE NEURAX SECTION */
+    .why-choose {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .why-choose h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .why-choose h2 span {
+      color: #6c3cff;
+      /* your theme color */
+    }
+
+    /* Container */
+    .why-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    /* Card */
+    .why-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon */
+    .why-card .icon {
+      font-size: 40px;
+      color: #6c3cff;
+      /* icon color */
+      margin-bottom: 15px;
+    }
+
+    /* Headings */
+    .why-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* Paragraph */
+    .why-card p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .why-choose h2 {
+        font-size: 28px;
+      }
+    }
+
+    .center {
+      text-align: center;
+      color: #6c3cff;
+      padding-top: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .centere {
+      text-align: center;
+      color: #6c3cff;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-graduation-cap"></i> EduBridge</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Programs</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="center">
+    Join the Movement to Shape Every Child’s Future
+  </h1>
+  <h2 class="centere">
+    We’re bridging the gap between those who care and those who need help. Whether you’re a teacher, parent, donor or
+    student your support matters.
+  </h2>
+
+  <!-- WHY CHOOSE NEURAX SECTION -->
+  <section class="why-choose">
+    <h2>Why Choose <span>EduBridge</span>?</h2>
+
+    <div class="why-container">
+
+      <div class="why-card">
+        <div class="icon"><i class="fa-solid fa-user-gear"></i></div>
+        <h3>Teachers & Educators</h3>
+        <p>Join us to share your skills, inspire young learners and help build a future where every child has access to
+          quality education.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Parents & Guardians</h3>
+        <p>Be the voice of your child or community — let us know how we can support you, and help create pathways for
+          change at home and beyond.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>NGOs & Community Groups</h3>
+        <p>Partner with us to deliver resources, run programmes or extend support in underserved areas — together we can
+          create meaningful impact.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>Donors & Volunteers</h3>
+        <p>Whether you give your time, funds or expertise, your involvement opens doors for children and youth who are
+          currently left behind.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT PAGE CONTENT -->
+  <div class="container">
+
+
+
+
+    <!-- <aside class="panel">
+        <h2>Reach out</h2>
+        <p class="small muted">Required fields *</p>
+        <form id="contactForm">
+          <div class="row">
+            <div class="col">
+              <label for="name">Name *</label>
+              <input id="name" required />
+              <div class="error" id="err-name"></div>
+            </div>
+            <div class="col">
+              <label for="email">Email *</label>
+              <input id="email" required />
+              <div class="error" id="err-email"></div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </aside>
+       -->
+    <div style="
+  max-width: 760px;
+  margin: auto;
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  font-family: 'Inter', sans-serif;
+">
+
+      <h1 style="font-size: 28px; margin-bottom: 24px;">Get in Touch</h1>
+
+      <!-- Name & Email -->
+      <div style="display: flex; gap: 16px; margin-bottom: 18px;">
+        <div style="flex: 1;">
+          <label>Name *</label>
+          <input type="text" id="name" placeholder="Your Name" style="
+        width: 100%; padding: 12px; border: 1px solid #e5e7eb;
+        border-radius: 8px; margin-top: 6px;
+      ">
+        </div>
+
+        <div style="flex: 1;">
+          <label>Email *</label>
+          <input type="email" id="email" placeholder="your@email.com" style="
+        width: 100%; padding: 12px; border: 1px solid #e5e7eb;
+        border-radius: 8px; margin-top: 6px;
+      ">
+        </div>
+      </div>
+
+      <!-- Category -->
+      <!-- Category -->
+      <div style="margin-bottom: 8px;">
+        <label>Category *</label>
+        <select style="
+    width: 100%; padding: 12px;
+    border: 1px solid #e5e7eb; border-radius: 8px;
+    margin-top: 6px;
+  "
+  id="category"
+  >
+          <option value="">-- Select a category --</option>
+          <option value="teachers">Teachers</option>
+          <option value="parents">Parents</option>
+          <option value="ngos">NGOs</option>
+          <option value="volunteers">Volunteers</option>
+        </select>
+      </div>
+
+      <p style="color: #dc2626; margin-top: 4px; font-size: 14px;">
+        Please select a category to proceed
+      </p>
+
+
+
+
+      <!-- Subject -->
+      <div style="margin-top: 16px;">
+        <label>Subject *</label>
+        <input type="text" id="subject" placeholder="Subject" style="
+      width: 100%; padding: 12px; border: 1px solid #e5e7eb;
+      border-radius: 8px; margin-top: 6px;
+    ">
+      </div>
+
+      <!-- Message -->
+      <div style="margin-top: 16px;">
+        <label>Message *</label>
+        <textarea placeholder="Your message" id="message" style="
+      width: 100%; padding: 12px; border: 1px solid #e5e7eb;
+      border-radius: 8px; margin-top: 6px; height: 150px;
+    "></textarea>
+      </div>
+
+      <!-- Cloudflare turnstile SUCCESS BOX -->
+      <div style="
+    margin-top: 16px;
+    background: #f0fff4;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border: 1px solid #bbf7d0;
+  ">
+        <div style="
+      background: #10b981;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      color: white;
+      font-size: 16px;
+    ">✓</div>
+
+        <span style="font-weight: 600;">Success!</span>
+
+        <img src="https://www.cloudflare.com/img/logo-cloudflare-dark.svg" alt="cloudflare"
+          style="margin-left: auto; width: 130px;">
+      </div>
+
+      <!-- Send Button -->
+      <button style="
+    width: 100%; margin-top: 24px;
+    padding: 14px; background: #8efac7;
+    border: none; border-radius: 10px;
+    font-size: 16px; font-weight: 700;
+    cursor: pointer;
+  "
+  id="submitBtn">
+        Send Message
+      </button>
+
+
+      <!-- Contact Information Section -->
+      <div style="
+  margin-top: 30px;
+  padding: 24px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+">
+
+        <h2 style="font-size: 22px; margin-bottom: 14px;">Contact Information</h2>
+
+        <!-- Email -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+          <i class="fa-solid fa-envelope" style="font-size: 20px; color: #0052cc;"></i>
+          <span style="font-size: 15px; font-weight: 500;"> 123344@brunel.ac.uk</span>
+        </div>
+
+        <!-- Address -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+          <i class="fa-solid fa-location-dot" style="font-size: 20px; color: #0052cc;"></i>
+          <span style="font-size: 15px; font-weight: 500;">Virtual Campus, EduBridge</span>
+        </div>
+
+        <!-- Subscribe -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <i class="fa-solid fa-bell" style="font-size: 20px; color: #0052cc;"></i>
+          <a href="#" style="font-size: 15px; font-weight: 600; text-decoration: none; color: #0052cc;">
+            Subscribe For Latest AI News
+          </a>
+        </div>
+
+        <!-- Social Icons -->
+        <div>
+          <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">Our Socials</h3>
+
+          <div style="display: flex; gap: 14px;">
+            <a href="#" style="
+        width: 40px; height: 40px; 
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%; background: #ffffff;
+        border: 1px solid #e5e7eb; 
+        font-size: 18px; color: #111;
+      ">
+              <i class="fab fa-facebook"></i>
+            </a>
+
+            <a href="#" style="
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%; background: #ffffff;
+        border: 1px solid #e5e7eb;
+        font-size: 18px; color: #111;
+      ">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#" style="
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%; background: #ffffff;
+        border: 1px solid #e5e7eb;
+        font-size: 18px; color: #111;
+      ">
+              <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="#" style="
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%; background: #ffffff;
+        border: 1px solid #e5e7eb;
+        font-size: 18px; color: #111;
+      ">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Contact Information Section -->
+
+    </div>
+
+
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-left">
+        <div class="logo"><i class="fa-solid fa-graduation-cap"></i> EduBridge</div>
+        <p class="desc">EduBridge is a cloud-native learning platform for Agentic AI, robotics, and next-gen AI
+          skills.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Programs</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <h3>Join Our Community</h3>
+        <a class="whatsapp-btn" href="#"><i class="fab fa-whatsapp"></i> WhatsApp Community</a>
+        <p class="community-text">Join our WhatsApp community for AI updates.</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">© 2025 EduBridge, Inc.</p>
+  </footer>
+
+
+  <script src="contact.js"></script>
+
+</body>
+
+</html>
